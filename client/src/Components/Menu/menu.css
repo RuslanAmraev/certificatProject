@@ -1,0 +1,137 @@
+.select-item{
+	margin: 0 10px;
+	cursor: pointer;
+	color: #06c;
+	border-bottom: 1px dotted #06c;
+	height: 20px;
+	text-align: center;
+	user-select: none;
+}
+
+.choosen{
+	background-color: #fc3;
+	padding: 1px 10px;
+	color: #000 !important;
+	border-bottom: none !important;;
+}
+
+.choosen-bg{
+	background-color: #fc3;
+}
+
+.menu{
+	background-color: #fae8bb;
+	min-height: 250px;
+	border-radius: 5px;
+	padding: 10px 20px;
+	margin: 20px 0;
+	position: relative;
+}
+
+.car{
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.car-box{
+	margin: 0 10px 0 0;
+	height: 50px;
+	width: 100px;
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.car-1{
+	transform: scale(-1, 1);
+}
+
+
+.city-box,
+.mark-box,
+.model-box
+{
+	margin: 10px 0;
+	display: flex;
+	justify-content: space-between;
+	width: 700px;
+	flex-wrap: wrap;
+}
+.mark-box p,
+.city-box p,
+.model-box p{
+	font-weight: 600;
+	color: #06c;
+	width: 100px;
+}
+
+.mark-choosen,
+.city-choosen,
+.model-choosen{
+	width: 70px !important;
+	color: #000 !important;
+	background-color: #fc3;
+	border: none !important;
+	border-radius: 5px;
+}
+
+
+.select-item:hover{
+	color: #ff0000;
+	border-bottom: none;
+}
+
+.result-button-box{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 70px;
+	width: 100%;
+	border-radius: 0px 0px 5px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fbf1d7;
+}
+
+.result-button{
+	height: 35px;
+	width: 180px;
+	border: 1px solid rgba(28,24,25,.05);
+	cursor: pointer;
+	box-shadow:0 5px 30px 0 rgba(42,129,221,.6);
+	background-color: #2a81dd;
+	color: #fff;
+	border-radius: 5px;
+	transition: .5s;
+	outline: none !important;
+}
+
+.result-button:hover{
+	background-color: #4f92ff;
+}
+
+.select-item-box{
+	display: flex;
+	flex-wrap: wrap;
+	width: 600px;
+}
+
+.model{
+	margin-bottom: 5px;
+}
+
+#sedan{
+	background-image: url(/images/sedan-car-model.svg);
+}
+
+#jeep{
+	background-image: url(/images/jeep.svg);
+}
+
+#minivan{
+	background-image: url(/images/minivan-car.svg);
+}

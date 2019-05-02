@@ -1,0 +1,128 @@
+.stats{
+	width: 35%;
+}
+
+.line{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px dotted #888b94;
+	margin: 15px 0;
+}
+
+.stat-name{
+	color: #888b94;
+}
+
+.gallery{
+	width: 750px;
+}
+
+.min-gallery-item{
+	width: 750px;
+	height: 200px;
+	position: relative;
+}
+
+.main-img{
+	max-width: 100%;
+	user-select: none;
+}
+
+.min-img{
+	width: 32%;
+	margin: 5px 5px;
+	border-radius: 5px;
+	user-select: none;
+}
+
+.active{
+	border-radius: 5px;
+	border: 3px solid yellow;
+}
+
+.title{
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.information{
+	width: 750px;
+	color: #000;
+	font-size: 18px;
+	word-spacing: 1.5px;
+}
+
+.br{
+	border-bottom: 1px solid #888b94;
+	margin: 10px 0;
+}
+
+strong{
+	font-weight: 600;
+}
+
+.seller-block{
+	position: sticky;
+	width: 100%;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	border: 1.5px solid #f2f2f3;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.Svyaz{
+	font-size: 20px;
+	color: #888b94;
+}
+
+.seller-number{
+	height: 50px;
+	border-radius: 5px;
+	background-color: #e9f2fb;
+	padding-top: 15px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.telefon{
+	font-size: 18px;
+	color: #000;
+}
+
+.number{
+	font-size: 26px;
+	font-weight: 600;
+}
+
+.line span{
+	text-transform: lowercase;
+}
+
+.info-block1{
+	text-transform: lowercase;
+}
+
+.info-block1:first-letter,
+.info-block2:first-letter{
+	text-transform: uppercase;
+}
+
+.city:first-letter{
+	text-transform: uppercase;
+}
+
+.msg-link{
+	width: 100%;
+}
+
+.btn{
+	width: 100%;
+}
+
+.car-name{
+	text-transform: capitalize;
+}

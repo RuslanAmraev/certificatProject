@@ -1,0 +1,86 @@
+.link-postblock{
+	border-top: none !important;
+	text-decoration: none !important;
+}
+
+.PostBlock{
+	display: flex;
+	height: 150px;
+	padding: 5px 10px;
+	align-items: center;
+	position: relative;
+	justify-content: space-between;
+}
+
+.PostBlock:hover{
+	background-color: #e8e5e5;
+}
+
+.postBlockImg{
+	height: 90%;
+}
+
+.PostBlock-info{
+	height: 100%;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.PostBlock-info-item{
+	line-height: 1.2;
+	color: #000;
+}
+
+.PostBlock-info-item h2{
+	font-weight: 600;
+	color: #06c;
+	font-size: 20px;
+	height: 20px;
+	margin-bottom: 0;
+}
+
+.PostBlock-info-item-2{
+	display: flex;
+	justify-content: space-between;
+	height: 20px;
+	width: 300px;
+	color: #1c1819;
+	opacity: .6;
+}
+
+.PostBlock-info-item-2 img{
+	height: 15px;
+}
+
+.PostBlock-info-item-2 div{
+	display: flex;
+	align-items: center;
+}
+
+.PostBlock-price{
+	height: 100%;
+	width: 15%;
+}
+
+.PostBlock-price h2{
+	font-weight: 600;
+	font-size: 20px;
+	color: #000;
+}
+
+.block-condition{
+	color: tomato;
+	margin-bottom: 0;
+}
+
+.PostBlock-info-item p{
+	overflow: hidden;
+}
+
+.big-info{
+	height: 76px;
+	overflow: hidden;
+	margin-bottom: 0;
+}

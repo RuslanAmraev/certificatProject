@@ -1,0 +1,64 @@
+.dialog-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 540px;
+}
+
+.dialog-main{
+	width: 100%;
+	height: 500px;
+	border: 2px solid #d6d6d6;
+	border-radius: 4px;
+}
+
+.dialog-interlocutor{
+	width: 100%;
+	height: 10%;	
+	background-color: #fff;
+}
+
+.dialog-messages-block{
+	width: 100%;
+	height: 75%;
+	background-color: #eaeaea;
+	border-bottom: 1.5px solid #cccccc;
+	border-top: 1.5px solid #cccccc;
+}
+
+.dialog-message-input-block{
+	width: 100%;
+	height: 15%;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.dialog-input{
+	height: 99%;
+	width: 90%;
+	border: none;
+	resize: none;
+	outline: none;
+	padding-top: 30px;
+	font-size: 18px;
+}
+
+.dialog-title{
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.dialog-button{
+	height: 30px;
+	width: 30px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	background-image: url(/images/icons8-triangle-40.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	transform: rotate(90deg);
+	opacity: .8;
+}

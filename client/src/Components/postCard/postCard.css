@@ -1,0 +1,36 @@
+.link{
+	border-top: none !important;
+	text-decoration: none !important;
+	position: relative;
+	width: 19%;
+	height: 150px;
+	margin-top: 10px;
+}
+
+.main{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(https://alaps-photos-kl.kcdn.kz/38/3849deba-2289-4a2c-9409-620c47c87df1/40-1200x752.jpg);
+	background-size: cover;
+	background-position: center;
+	z-index: 99;
+}
+
+.main:hover .info{
+	display: flex;
+}
+
+.info{
+	display: none;
+	width: 100%;
+	height: 20px;
+	justify-content: space-between;
+	background-color: #000;
+	color: #fff;
+	padding: 0 2px;
+}

@@ -1,0 +1,82 @@
+.commentary-title{
+	font-size: 18px;
+}
+
+.comment-author{
+	font-size: 17px;
+	display: flex;
+}
+
+.comment-remove{
+	color: tomato;
+	font-size: 17px;
+	cursor: pointer;
+	border-bottom: 1px dotted tomato;
+	user-select: none;
+}
+
+.comment-remove:hover{
+	border: none;
+}
+
+.comment-text{
+	font-size: 16px;
+}
+
+.input-box{
+	background-color: #e8e8e8;
+	padding: 15px;
+	min-height: 350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.input-box-item{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	min-height: 100px;
+}
+
+.comment-input{
+	width: 70%;
+	height: 200px;
+	resize: none;
+}
+
+.commentary-button{
+	border: none;
+	color: #fff;
+	background-color: #1a80d9;
+	height: 40px;
+	width: 150px;
+}
+
+.button-container{
+	width: 100%;
+	text-align: center;
+}
+
+.input-title{
+	font-size: 20px;
+	height: 25px;
+}
+
+.errors-container{
+	color: tomato;
+	font-size: 15px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.errors-container p{
+	margin: 0;
+}
+
+.errors-container p:before{
+	content: '•';
+	margin-right: 3px;
+}

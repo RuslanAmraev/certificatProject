@@ -1,0 +1,194 @@
+.condition-select,
+.mark-model-select,
+.body-select,
+.year-select,
+.price-select,
+.engine-select,
+.vin-select,
+.transmission-select,
+.mileage-select,
+.rudder-select,
+.color-select,
+.available-select,
+.customs-select,
+.drive-select,
+.outside-select,
+.optic-select,
+.salon-select,
+.media-select,
+.car-option-select,
+.additionally-select,
+.text-select,
+.select-block{
+	display: flex;
+	margin-top: 40px;
+}
+
+.select{
+	width: 200px;
+}
+
+.select:last-child{
+	margin-left: 20px;
+}
+
+.addpost-title{
+	font-size: 30px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.addpost-info{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#model{
+	display: none;
+}
+
+.condition{
+	margin-right: 15px;
+	font-size: 18px;
+}
+
+.condition:nth-child(1){
+	margin-left: none !important;
+}
+
+.bodies{
+	display: flex;
+	flex-wrap: wrap;
+	width: 850px;
+}
+
+.body{
+	margin-right: 10px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.short-input{
+	width: 120px;
+	height: 30px;
+	font-size: 20px;
+}
+
+.hint{
+	font-size: 14px;
+	color: #565656;
+	margin-top: 5px;
+}
+
+.after-input{
+	font-size: 19px;
+	margin: 5px 0 0 5px;
+}
+
+.engine{
+	font-size: 18px;
+	margin-left: 20px;
+}
+
+.engine-item{
+	margin-top: 5px;
+}
+
+.category-n-i{
+	font-size: 18px;
+	width: 200px;
+}
+
+.category{
+	font-weight: 600;
+	font-size: 19px;
+	width: 200px;
+}
+
+.vin-input{
+	height: 30px;
+	font-size: 18px;
+}
+
+.transmission-item{
+	font-size: 18px;
+}
+
+.radio-choose{
+	display: flex;
+}
+
+.lb-0{
+	border-left: 0px !important;
+}
+
+.radio-item{
+	border: 1px solid #000;
+	width: 90px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	font-size: 17px;
+	user-select: none;
+	cursor: pointer;
+}
+
+.color{
+	width: 200px;
+	height: 30px;
+	font-size: 18px;
+}
+
+.checkbox-block{
+	margin-left: 20px;
+	align-items: center;
+	display: flex;
+	font-size: 17px;
+}
+
+.checkbox{
+	height: 15px;
+	width: 15px;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.mb-15{
+	margin-bottom: 15px;
+}
+
+.checkbox-column{
+	width: 300px;
+}
+
+.text-area{
+	width: 550px;
+	height: 150px;
+	min-height: 150px;
+	max-height: 300px;
+}
+
+.contact-select{
+	width: 200px;
+}
+
+.addpost-button{
+	margin-top: 40px;
+	margin-left: 100px;
+	box-shadow: none !important;
+}
+
+.photoUpload{
+	display: flex;
+	margin-top: 40px;
+}
+
+.select-error{
+	margin-top: 10px;
+	margin-left: 200px;
+	color: tomato;
+	height: 12px;
+	width: 500px;
+}

@@ -1,0 +1,10 @@
+.own-adds{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.own-adds h2{
+	font-weight: 600;
+	font-size: 23px;
+}
