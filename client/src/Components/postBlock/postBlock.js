@@ -10,7 +10,14 @@ class PostBlock extends Component{
 		this.state = {
 			data: this.props.data
 		}
-		console.log(this.state.data)
+	}
+
+	componentWillReceiveProps( newProps){
+		if( newProps.data ){
+			this.setState({
+				data: newProps.data
+			})
+		}
 	}
 
 	render(){

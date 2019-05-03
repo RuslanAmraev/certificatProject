@@ -5,6 +5,11 @@
 .comment-author{
 	font-size: 17px;
 	display: flex;
+	height: 20px;
+}
+
+.comment-author strong{
+	margin-right: 10px;
 }
 
 .comment-remove{
@@ -79,4 +84,8 @@
 .errors-container p:before{
 	content: '•';
 	margin-right: 3px;
+}
+
+.comment{
+	margin-bottom: 15px;
 }

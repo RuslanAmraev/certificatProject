@@ -14,10 +14,11 @@ class Menu extends Component {
 		super( props )
 
 		this.state = {
-			body: null,
+			bodyMenu: null,
 			city: null,
 			mark: null,
 			model: '',
+			additionOption: [],
 			models: []
 		}
 		
@@ -26,25 +27,58 @@ class Menu extends Component {
 		this.selectMark = this.selectMark.bind(this);
 		this.selectModel = this.selectModel.bind(this);
 		this.find = this.find.bind(this);
+		this.additionOption = this.additionOption.bind(this);
 		// this.props.getCount();
 	}
 
 	find(){
-		let data = this.state
+		// let data = this.state
+
+		let data = {
+			bodyMenu: this.state.bodyMenu,
+			city: this.state.city,
+			mark: this.state.mark,
+			model: this.state.model,
+			condition: this.state.condition,
+			engineType: this.state.engineType,
+			rudder: this.state.rudder,
+			body: this.state.body,
+			transmission: this.state.transmission,
+			drive: this.state.drive
+		}
 		this.props.findPosts( data )
 		$('.hot-block').hide()
 	}
 
+	additionOption( event ){
+		let category = event.target.id
+		let value = event.target.value
+		if( value == ''){
+			this.setState({
+				[category]: null
+			})
+		}else{
+			this.setState({
+				[category]: value
+			})			
+		}
+
+	}
+
+	showAddition(){
+		$('.hidden').slideToggle()
+	}
+
 	selectBody( event ){
 			 let currentBody = event.target.getAttribute('name')
-			 if(this.state.body === currentBody){
+			 if(this.state.bodyMenu === currentBody){
 			 	$('.car-box').removeClass('choosen-bg')
 			 	this.setState({
-			 		body: null
+			 		bodyMenu: null
 			 	})
 			 }else{	
 			this.setState({
-				body: currentBody
+				bodyMenu: currentBody
 			})
 			$('.car-box').removeClass('choosen-bg')
 			$( event.target ).addClass('choosen-bg')
@@ -120,36 +154,83 @@ class Menu extends Component {
 	}
 
 	render(){
+		const transmission = ['Механика', 'Автомат', 'Типтроник', 'Вариатор', 'Робот'];
+		const body = ['Cедан', 'Универсал', 'Хэтчбек/лифтбек', 'Лимузин', 'Купе', 'Родстер', 'Кабриолет', 'Внедорожник', 'Кроссовер', 'Микровэн', 'Минивэн', 'Микроавтобус', 'Фургон', 'Пикап']
+		const condition = [{id:'new', value:'Новая'}, {id:'on-the-run', value:'На ходу'}, {id:'not-on-the-go', value:'Не на ходу'}, {id:'emergency', value:'Аварийная'}]
 		const cities = ["Алматы", "Нур-султан(Астана)", "Караганда", "Шымкент", "Актау", "Тараз"];
 		const marks = ["Toyota", "BMW", "Mercedes", "Audi", "Mazda", "Tesla", "Mitsubishi", "Nissan"];
+		const engineType = ["бензин", "дизель", "газ-бензин", "газ", "гибрид", "электричество"]
 		const models = this.state.models
 
 		return(
-			<div className="menu">
-				<div className="d-flex">
-					<div onClick={this.selectBody} id="sedan" name="1" className="car-box">
+			<>	
+				<div className="menu">
+					<div className="d-flex">
+						<div onClick={this.selectBody} id="sedan" name="1" className="car-box">
+						</div>
+						<div onClick={this.selectBody} id="jeep" name="2" className="car-box">
+						</div>
+						<div onClick={this.selectBody} id="minivan" name="3" className="car-box">
+						</div>
 					</div>
-					<div onClick={this.selectBody} id="jeep" name="2" className="car-box">
+					<div className="city-box">
+						<p>Где искать ?</p>
+						<div className='select-item-box'>{cities.map( city => { return( <div name={city} key={city} className='select-item city' onClick={this.selectCity} >{city}</div> ) })}</div>
+					</div>				
+					<div className="mark-box">
+						<p>Марка</p>
+						<div className='select-item-box'>{marks.map( mark => { return( <div name={mark} key={mark} className="select-item marka" onClick={this.selectMark}>{mark}</div> ) })}</div>
+					</div>				
+					<div className="model-box">
+						<p>Модель</p>
+						<div className='select-item-box'>{models.map( models => { return( <div name={models} key={models} className="select-item model" onClick={this.selectModel}>{models}</div> ) })}</div>
+					</div>				
+					<div className="advanced-find-box" id='1'>
+						<div className='button-box'><p onClick={ this.showAddition } className='advanced-find-button'>Расширенный поиск</p></div>
+						<div className='hidden'>
+							<div className=' flex justify-content-between'>
+								<div className='advanced-option-column'>
+									<select onChange={ this.additionOption } className='advanced-find-select' id="condition">
+										<option className='advanced-find-option default' value="" selected >Состояние машины</option>
+										{ condition.map(el => { return <option key={ el.id } value={ el.value }>{ el.value }</option> })}
+									</select>
+									<select onChange={ this.additionOption } className='advanced-find-select' id="body">
+										<option className='advanced-find-option default' value="" selected >Кузов</option>
+										{ body.map(el => { return <option key={ el } value={ el }>{ el }</option> }) }
+									</select>
+								</div>
+								<div className=' advanced-option-column'>
+									<select onChange={ this.additionOption } className='advanced-find-select' id="engineType">
+										<option className='advanced-find-option default' value="" selected>Тип двигателя</option>
+										{ engineType.map(el => { return <option key={ el } value={ el }>{ el }</option> }) }
+
+									</select>
+									<select onChange={ this.additionOption } className='advanced-find-select' id="transmission">
+										<option className='advanced-find-option default' value="" selected>КПП</option>
+										{ transmission.map(el => { return <option key={ el } value={ el }>{ el }</option> }) }
+									</select>
+								</div>
+								<div className= 'advanced-option-column'>
+									<select onChange={ this.additionOption } className='advanced-find-select' id="rudder">
+										<option className='advanced-find-option default' value="" selected>Расположение руля</option>
+										<option className='advanced-find-option ' value="Слева">слева</option>
+										<option className='advanced-find-option ' value="Справа">справа</option>
+									</select>
+									<select onChange={ this.additionOption } className='advanced-find-select' id="drive">
+										<option className='advanced-find-option default' value="" selected>Привод</option>
+										<option className='advanced-find-option' value="Передний привод" >Передний привод</option>
+										<option className='advanced-find-option' value="Полный привод" >Полный привод</option>
+										<option className='advanced-find-option' value="Задний привод" >Задний привод</option>
+									</select>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div onClick={this.selectBody} id="minivan" name="3" className="car-box">
-					</div>
-				</div>
-				<div className="city-box">
-					<p>Где искать ?</p>
-					<div className='select-item-box'>{cities.map( city => { return( <div name={city} key={city} className='select-item city' onClick={this.selectCity} >{city}</div> ) })}</div>
-				</div>				
-				<div className="mark-box">
-					<p>Марка</p>
-					<div className='select-item-box'>{marks.map( mark => { return( <div name={mark} key={mark} className="select-item marka" onClick={this.selectMark}>{mark}</div> ) })}</div>
-				</div>				
-				<div className="model-box">
-					<p>Модель</p>
-					<div className='select-item-box'>{models.map( models => { return( <div name={models} key={models} className="select-item model" onClick={this.selectModel}>{models}</div> ) })}</div>
 				</div>
 				<div className='result-button-box'>
-					<button className="result-button" onClick={this.find}>Показать {this.props.count} объявлений</button>
+						<button className="result-button" onClick={this.find}>Показать {this.props.count} объявлений</button>
 				</div>
-			</div>
+			</>
 		)
 	}
 }

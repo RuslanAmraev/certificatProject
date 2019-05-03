@@ -38,6 +38,11 @@ export default function( state=initialState, action){
 		return{
 			...state,
 			myPost: action.myPost
+		}		
+		case 'REMOVE_FINDED':
+		return{
+			...state,
+			findedPosts: ''
 		}
 		default:
 			return state

@@ -96,6 +96,7 @@ class AddPost extends Component{
 			year: d.year,
 			price: d.price,
 			engineVolume: d.engineVolume,
+			engineType: d.engineType,
 			transmission: d.transmission,
 			body: d.body,
 			color: d.color,
@@ -524,11 +525,11 @@ class AddPost extends Component{
 					<div className='mark-model-select'>
 						<p id='modelError' className='category'>Марка и модель*</p>
 						<select className='select' name="mark" id="mark" size="5" onChange={this.markSelect}>
-							<option value="choose">выбрать марку</option>
+							<option value="choose" hidden>выбрать марку</option>
 							{marks.map( mark => { return( <option key={mark} value={mark} name={mark}>{mark}</option> ) })}
 						</select>
 						<select className='select' name="model" id="model" size="5" onChange={this.modelSelect}>
-							<option value="choose">выбрать модель</option>
+							<option value="choose" hidden>выбрать модель</option>
 							{currentModels.map( model => { return( <option key={model} value={model} name={model}>{model}</option> ) })}
 						</select>
 					</div>
@@ -632,7 +633,7 @@ class AddPost extends Component{
 				<div className='color-select'>
 					<p className='category-n-i'>Цвет</p>
 					<select onClick={this.colorSelect} className='color' name="color" id="color">
-						<option value="null">Выбрать</option>
+						<option value="null" hidden>Выбрать</option>
 						{color.map(color =>(<option key={color} value={color} name={color}>{color}</option>))}
 					</select>
 					<div className='checkbox-block'>
@@ -883,7 +884,7 @@ class AddPost extends Component{
 					<div className='select-block'>
 						<p className='category'>Город*</p>
 						<select onChange={ this.contactSelect } className='contact-select' name="city" id="city">
-							<option>Выбрать</option>
+							<option hidden>Выбрать</option>
 							{cities.map( el => {return <option key={el} value={el}>{el}</option> })}
 						</select>
 					</div>

@@ -47,11 +47,12 @@ class Comments extends Component{
 	}
 	
 	render(){
+				
 		return(
 			<div className='commentary-box'>
 				<h2 className='commentary-title'>Комментарии</h2>
 				<div>
-					{ this.props.messages && this.props.messages.map(el=>{ return <div key={el._id}><div className='comment-author'><strong>{ el.user }</strong>{ el.user === this.props.user && <p className='comment-remove' commentid={ el._id } onClick={ this.deleteComment }>удалить</p>}</div><p className='comment-text'>{el.comment}</p></div> })}
+					{ this.props.messages && this.props.messages.map(el=>{ return <div className='comment' key={el._id}><div className='comment-author'><strong>{ el.user }</strong>{ el.user === this.props.user && <p className='comment-remove' commentid={ el._id } onClick={ this.deleteComment }>удалить</p>}</div><p className='comment-text'>{el.comment}</p></div> })}
 				</div>
 				<div className='input-box'>
 					<h2 className='input-title'>Написать комментарий</h2>

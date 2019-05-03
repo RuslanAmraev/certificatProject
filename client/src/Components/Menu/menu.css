@@ -21,10 +21,10 @@
 
 .menu{
 	background-color: #fae8bb;
-	min-height: 250px;
-	border-radius: 5px;
+	min-height: 200px;
+	border-radius: 5px 5px 0 0;
 	padding: 10px 20px;
-	margin: 20px 0;
+	margin: 20px 0 0 0;
 	position: relative;
 }
 
@@ -59,6 +59,7 @@
 	justify-content: space-between;
 	width: 700px;
 	flex-wrap: wrap;
+	user-select: none;
 }
 .mark-box p,
 .city-box p,
@@ -85,9 +86,6 @@
 }
 
 .result-button-box{
-	position: absolute;
-	bottom: 0;
-	left: 0;
 	height: 70px;
 	width: 100%;
 	border-radius: 0px 0px 5px 5px;
@@ -134,4 +132,72 @@
 
 #minivan{
 	background-image: url(/images/minivan-car.svg);
+}
+
+.advanced-find-button{
+	box-sizing: content-box;
+	color: #06c;
+	font-weight: 600;
+	border-bottom: 1px solid #06c;
+	display: inline-block;
+	cursor: pointer;
+	user-select: none;
+}
+
+.advanced-find-button:hover{
+	color: #f33;
+	border-bottom: none;
+}
+
+.advanced-find-button:hover:after{
+	color: #f33;
+}
+
+.advanced-find-button:after{
+	content: "▼";
+	color: #06c;
+	font-size: 11px;
+	margin-left: 5px;
+}
+
+.advanced-find-box{
+	min-height: 30px;
+	width: 700px;
+	background-color: #fae8bb;
+	border-radius: 5px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.advanced-option-column{
+	width: 30%;
+	height: 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.advanced-find-select{
+	width: 100%;
+	height: 30px;
+	border-color: #ccc;
+}
+
+.default{
+	color: #ccc;
+}
+
+.button-box{
+	height: 20px;
+	background-color: transparent;
+}
+
+.flex{
+	display: flex;
+}
+
+.hidden{
+	display: none;
 }

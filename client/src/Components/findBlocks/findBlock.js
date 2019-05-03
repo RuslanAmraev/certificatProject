@@ -25,7 +25,7 @@ class FindBlock extends Component{
 		const adds = this.state.adds
 		return(
 			<div>
-				{adds.map( add => {return <PostBlock data={add}/>})}
+				{adds.map( add => {return <PostBlock data={ add }/>})}
 			</div>	
 		)
 	}

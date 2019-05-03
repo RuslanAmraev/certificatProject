@@ -38,13 +38,13 @@ router.post('/add', (req,res)=>{
 		console.log(validation.errors)
 		return(res.status(500).send(validation.errors))
 	}
-	if( data.body == 'Седан' || data.body == 'Универсал' || data.body == 'Купе' || data.body == 'Кабриолет' || data.body == 'Хэтчбек/лифтбек' || data.body == 'Родстер'){
+	if( data.bodyMenu == 'Седан' || data.bodyMenu == 'Универсал' || data.bodyMenu == 'Купе' || data.bodyMenu == 'Кабриолет' || data.bodyMenu == 'Хэтчбек/лифтбек' || data.bodyMenu == 'Родстер'){
 		bodyMenu = '1'
 	}
-	if( data.body == 'Внедорожник' || data.body == 'Кроссовер' || data.body == 'Пикап' ){
+	if( data.bodyMenu == 'Внедорожник' || data.bodyMenu == 'Кроссовер' || data.bodyMenu == 'Пикап' ){
 		bodyMenu = '2'
 	}	
-	if( data.body == 'Лимузин' || data.body == 'Микровен' || data.body == 'Минивен' ||data.body == 'Микроавтобус' || data.body == 'Фургон' ){
+	if( data.bodyMenu == 'Лимузин' || data.bodyMenu == 'Микровен' || data.bodyMenu == 'Минивен' ||data.bodyMenu == 'Микроавтобус' || data.bodyMenu == 'Фургон' ){
 		bodyMenu = '3'
 	}
 
@@ -85,6 +85,7 @@ router.post('/add', (req,res)=>{
 		year: data.year,
 		price: data.price,
 		engineVolume: data.engineVolume,
+		engineType: data.engineType,
 		transmission: data.transmission,
 		body: data.body,
 		color: data.color,
@@ -172,8 +173,11 @@ router.post('/removecomment', (req, res)=>{
 router.get('/seller/:id', (req, res)=>{
 	Post
 	.find({seller: req.params.id})
-	.then(post=>{
+	.then(post =>{
 		res.status(200).send(post)
+	})
+	.catch(err =>{
+		res.status(500).send(err)
 	})
 })
 
@@ -228,8 +232,26 @@ router.post('/findPosts', (req, res)=>{
 	if(data.model){
 		query.model = data.model
 	}
+	if(data.bodyMenu){
+		query.bodyMenu = data.bodyMenu
+	}
 	if(data.body){
-		query.bodyMenu = data.body
+		query.body = data.body
+	}
+	if(data.rudder){
+		query.rudder = data.rudder
+	}
+	if(data.transmission){
+		query.transmission = data.transmission
+	}
+	if(data.drive){
+		query.drive = data.drive
+	}
+	if(data.engineType){
+		query.engineType = data.engineType
+	}
+	if(data.condition){
+		query.condition = data.condition
 	}
 	Post
 	.find(query)

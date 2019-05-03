@@ -75,7 +75,10 @@ export const getAdd = ( id ) => dispatch =>{
 export const findPosts = ( data ) => dispatch =>{
 	axios
 	.post('/api/post/findposts', data)
-	.then(res =>{
+	.then( res =>{
+		dispatch({
+			type: 'REMOVE_FINDED'
+		})
 		dispatch({
 			type: 'ADD_FINDED',
 			findedAdds: res.data
@@ -115,6 +118,27 @@ export const getCount = () => dispatch =>{
 			errors: err.response.data
 		})
 		}
+	})
+}
+
+export const removeComment = ( data ) => dispatch =>{
+	axios
+	.post('/api/post/removecomment', data)
+	.then( res =>{
+		dispatch({
+			type: 'GET_ADD',
+			add: res.data
+		})
+		dispatch({
+			type: 'GET_ERROR',
+			errors: {}
+		})
+	})
+	.catch(err=>{
+		dispatch({
+			type: 'GET_ERROR',
+			errors: err.response.data
+		})
 	})
 }
 
@@ -162,26 +186,5 @@ export const addComment = ( data ) => dispatch =>{
 				errors: err.response.data
 			})
 		}
-	})
-}
-
-export const removeComment = ( data ) => dispatch =>{
-	axios
-	.post('/api/post/removecomment', data)
-	.then( res =>{
-		dispatch({
-			type: 'GET_ADD',
-			add: res.data
-		})
-		dispatch({
-			type: 'GET_ERROR',
-			errors: {}
-		})
-	})
-	.catch(err=>{
-		dispatch({
-			type: 'GET_ERROR',
-			errors: err.response.data
-		})
 	})
 }
