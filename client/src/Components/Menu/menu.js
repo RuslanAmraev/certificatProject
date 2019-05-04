@@ -19,7 +19,9 @@ class Menu extends Component {
 			mark: null,
 			model: '',
 			additionOption: [],
-			models: []
+			models: [],
+			priceFrom:'',
+			priceBefore:''
 		}
 		
 		this.selectBody = this.selectBody.bind(this);
@@ -28,12 +30,12 @@ class Menu extends Component {
 		this.selectModel = this.selectModel.bind(this);
 		this.find = this.find.bind(this);
 		this.additionOption = this.additionOption.bind(this);
+		this.priceChange = this.priceChange.bind(this);
+		this.setPrice = this.setPrice.bind(this);
 		// this.props.getCount();
 	}
 
 	find(){
-		// let data = this.state
-
 		let data = {
 			bodyMenu: this.state.bodyMenu,
 			city: this.state.city,
@@ -44,16 +46,56 @@ class Menu extends Component {
 			rudder: this.state.rudder,
 			body: this.state.body,
 			transmission: this.state.transmission,
-			drive: this.state.drive
+			drive: this.state.drive,
+			priceBefore: this.state.priceBefore,
+			priceFrom: this.state.priceFrom
+
 		}
+		console.log(data)
 		this.props.findPosts( data )
 		$('.hot-block').hide()
+	}
+
+	priceChange( event ){
+		let id = event.target.id
+		let value = event.target.value
+		if( id === 'from' ){
+			this.setState({
+				priceFrom: value
+			})
+		}
+		if( id === 'before' ){
+			this.setState({
+				priceBefore: value
+			})
+		}
+	}
+
+	setPrice( event ){
+		let id = event.target.id
+		if( id === '1m'){
+			this.setState({
+				priceBefore: 1000000
+			})
+		}
+		if( id === '1-2m'){
+			this.setState({
+				priceFrom: 1000000,
+				priceBefore: 2000000
+			})
+		}
+		if( id === '2-3m'){
+			this.setState({
+				priceFrom: 2000000,
+				priceBefore: 3000000
+			})
+		}
 	}
 
 	additionOption( event ){
 		let category = event.target.id
 		let value = event.target.value
-		if( value == ''){
+		if( value === ''){
 			this.setState({
 				[category]: null
 			})
@@ -165,26 +207,40 @@ class Menu extends Component {
 		return(
 			<>	
 				<div className="menu">
-					<div className="d-flex">
-						<div onClick={this.selectBody} id="sedan" name="1" className="car-box">
+					<div className='d-flex justify-content-between'>	
+						<div>	
+							<div className="d-flex">
+								<div onClick={this.selectBody} id="sedan" name="1" className="car-box">
+								</div>
+								<div onClick={this.selectBody} id="jeep" name="2" className="car-box">
+								</div>
+								<div onClick={this.selectBody} id="minivan" name="3" className="car-box">
+								</div>
+							</div>
+							<div className="city-box">
+								<p>Где искать ?</p>
+								<div className='select-item-box'>{cities.map( city => { return( <div name={city} key={city} className='select-item city' onClick={this.selectCity} >{city}</div> ) })}</div>
+							</div>				
+							<div className="mark-box">
+								<p>Марка</p>
+								<div className='select-item-box'>{marks.map( mark => { return( <div name={mark} key={mark} className="select-item marka" onClick={this.selectMark}>{mark}</div> ) })}</div>
+							</div>				
+							<div className="model-box">
+								<p>Модель</p>
+								<div className='select-item-box'>{models.map( models => { return( <div name={models} key={models} className="select-item model" onClick={this.selectModel}>{models}</div> ) })}</div>
+							</div>
 						</div>
-						<div onClick={this.selectBody} id="jeep" name="2" className="car-box">
+						<div>
+							<div className='price-diapason'>
+								<p className='price-title'>Цена</p>
+								<div className='d-flex'>
+									<input onChange={ this.priceChange } value={ this.state.priceFrom } className='price-input' id='from' placeholder='От' type="number"/>
+									<input onChange={ this.priceChange } value={ this.state.priceBefore } className='price-input' id='before' placeholder='До' type="number"/>
+								</div>
+								<div className='d-flex justify-content-between mt-2'><p onClick={ this.setPrice } id= '1m' className='select-price'>до 1 млн</p><p id= '1-2m' className='select-price' onClick={ this.setPrice }>1 - 2 млн</p><p id= '2-3m' className='select-price' onClick={ this.setPrice }>2 - 3 млн</p></div>
+							</div>
 						</div>
-						<div onClick={this.selectBody} id="minivan" name="3" className="car-box">
-						</div>
-					</div>
-					<div className="city-box">
-						<p>Где искать ?</p>
-						<div className='select-item-box'>{cities.map( city => { return( <div name={city} key={city} className='select-item city' onClick={this.selectCity} >{city}</div> ) })}</div>
-					</div>				
-					<div className="mark-box">
-						<p>Марка</p>
-						<div className='select-item-box'>{marks.map( mark => { return( <div name={mark} key={mark} className="select-item marka" onClick={this.selectMark}>{mark}</div> ) })}</div>
-					</div>				
-					<div className="model-box">
-						<p>Модель</p>
-						<div className='select-item-box'>{models.map( models => { return( <div name={models} key={models} className="select-item model" onClick={this.selectModel}>{models}</div> ) })}</div>
-					</div>				
+					</div>						
 					<div className="advanced-find-box" id='1'>
 						<div className='button-box'><p onClick={ this.showAddition } className='advanced-find-button'>Расширенный поиск</p></div>
 						<div className='hidden'>

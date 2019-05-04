@@ -253,8 +253,19 @@ router.post('/findPosts', (req, res)=>{
 	if(data.condition){
 		query.condition = data.condition
 	}
+	if(data.priceFrom){
+		query.price = { '$gte': data.priceFrom }
+	}
+	if(data.priceBefore){
+		query.price = { '$lt': data.priceBefore }
+	}
+	if( data.priceFrom && data.priceBefore ){
+		query.price = {'$gte': data.priceFrom, '$lt': data.priceBefore}
+	}
 	Post
 	.find(query)
+	// .min( {price: data.priceFrom} )
+	// .max( {price: data.priceBefore} )
 	.then(post=>{
 		if(post){
 			res.status(200).send(post)

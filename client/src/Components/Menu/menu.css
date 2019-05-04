@@ -201,3 +201,46 @@
 .hidden{
 	display: none;
 }
+
+.price-title{
+
+}
+
+.price-diapason{
+	height: 90px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.price-input{
+	width: 150px;
+	height: 30px;
+	border: none;
+	padding-left: 10px;
+}
+
+.price-input:nth-child(1){
+	border-right: 1px solid #eee;
+	border-radius: 3px 0 0 3px;
+}
+.price-input:nth-child(2){
+	border-left: 1px solid #eee;
+	border-radius: 0 3px 3px 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.select-price{
+	border-bottom: 1px dotted #000;
+	height: 18px;
+	cursor: pointer;
+}
+
+.select-price:hover{
+	border-bottom: none;
+	color: #f33;
+}
